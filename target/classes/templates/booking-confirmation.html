@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 10px 0;
+        }
+        .details {
+            margin: 20px 0;
+        }
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .details table, .details th, .details td {
+            border: 1px solid #ddd;
+        }
+        .details th, .details td {
+            padding: 8px;
+            text-align: left;
+        }
+        .details th {
+            background-color: #f4f4f4;
+        }
+        .total {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .movie-poster {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .movie-poster img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>Booking Confirmation</h2>
+    </div>
+    <div class="details">
+        <h3>Customer Information</h3>
+        <p><strong>Name:</strong> <span th:text="${name}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${email}"></span></p>
+        <p><strong>Phone:</strong> <span th:text="${phone}"></span></p>
+
+        <h3>Booking Details</h3>
+        <div class="movie-poster">
+            <img th:src="${imageMovie}" alt="Movie Poster"/>
+        </div>
+        <table>
+            <tr>
+                <th>Booking ID</th>
+                <td th:text="${idBooking}"></td>
+            </tr>
+            <tr>
+                <th>Movie Name</th>
+                <td th:text="${movieName}"></td>
+            </tr>
+            <tr>
+                <th>Screen</th>
+                <td th:text="${screenName}"></td>
+            </tr>
+            <tr>
+                <th>Start Time</th>
+                <td th:text="${startTime}"></td>
+            </tr>
+            <tr>
+                <th>End Time</th>
+                <td th:text="${endTime}"></td>
+            </tr>
+            <tr>
+                <th>Number of Tickets</th>
+                <td th:text="${amountTicket}"></td>
+            </tr>
+            <tr>
+                <th>Price per Ticket</th>
+                <td th:text="${#numbers.formatDecimal(price, 1, 'COMMA', 2, 'POINT')} + ' VND'"></td>
+            </tr>
+            <tr>
+                <th>Subtotal</th>
+                <td th:text="${#numbers.formatDecimal(subtotal, 1, 'COMMA', 2, 'POINT')} + ' VND'"></td>
+            </tr>
+            <tr>
+                <th>Discount</th>
+                <td th:text="${#numbers.formatDecimal(discount, 1, 'COMMA', 2, 'POINT') + ' VND'}"></td>
+            </tr>
+            <tr>
+                <th>Total Amount</th>
+                <td th:text="${#numbers.formatDecimal(total, 1, 'COMMA', 2, 'POINT')} + ' VND'"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

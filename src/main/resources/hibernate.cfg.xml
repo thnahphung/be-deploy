@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://34.126.172.188:3306/movie_ticketing</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!--SQL dialect-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!--JDBC connection pool(use built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!--Disable the second-level cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</property>
+
+        <!--Echo all executed SQL to stdout-->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+
+        <!-- Entity mapping -->
+        <mapping class="com.example.be.models.Movie" />
+        <mapping class="com.example.be.models.Screen" />
+        <mapping class="com.example.be.models.Seat" />
+        <mapping class="com.example.be.models.BookingHistory" />
+        <mapping class="com.example.be.models.ShowTime" />
+        <mapping class="com.example.be.models.Ticket" />
+        <mapping class="com.example.be.models.Image" />
+        <mapping class="com.example.be.models.User" />
+        <mapping class="com.example.be.models.ScreenShowTime" />
+
+    </session-factory>
+</hibernate-configuration>
