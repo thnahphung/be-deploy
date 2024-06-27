@@ -58,8 +58,10 @@ public class PaymentController {
         vnp_Params.put("vnp_ReturnUrl", PaymentConfig.vnp_ReturnUrl);
 
 
-        Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+8"));
+//        Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+8"));
+        Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Asia/Singapore"));
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+        formatter.setTimeZone(TimeZone.getTimeZone("Asia/Singapore"));
         String vnp_CreateDate = formatter.format(cld.getTime());
         vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
 
